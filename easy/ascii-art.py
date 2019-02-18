@@ -1,6 +1,6 @@
 import sys
 import math
-
+import re
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
 
@@ -11,7 +11,9 @@ a={"A":0,"B":1,"C":2,"D":3,"E":4,"F":5,"G":6,"H":7,"I":8,"J":9,"K":10,"L":11,"M"
 l = int(input())
 h = int(input())
 t = input()
-t=t.upper()
+
+t=re.sub('\W','@',t).upper()
+
 base=[]
 for i in range(h):
     row = input()
@@ -23,7 +25,7 @@ for i in range(len(t)):
     lis.append(a[t[i]])
     #print(lis)
 
-letter=""
+letter=""  
 for j in range(h):
     for k in range(len(t)):
         letter+=base[j][lis[k]*l:lis[k]*l+l]
